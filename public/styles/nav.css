@@ -1,0 +1,38 @@
+nav {
+  position: fixed;
+  height: 120px;
+  width: 100%;
+  background-color: #4056A1;
+  padding: 1em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  
+}
+
+.header-layout {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  color: #FFFFFF;
+}
+
+#tweeter {
+  font-family: 'Bungee', sans-serif;
+  font-size: 1.5em;
+}
+
+#nav-tweet {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.str {
+  font-weight: bold;
+}
+
+.fa-solid {
+  display: flex;
+  justify-content: center;
+  color:#b73030;
+}
