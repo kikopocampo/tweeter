@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
@@ -12,16 +14,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/media.css" type="text/css" media="(min-width: 974px)" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="./scripts/client.js"></script>
@@ -33,64 +38,49 @@
 
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav>
+    <div class="nav">
+    <nav >
       <div class="header-layout">
-      <span id="tweeter">Tweeter</span>
+      <span class="tweeter"><i class="fa-brands fa-earlybirds"></i>Tweeter</i></span>
+      <span class="tweeter tab-logo"><i class="fa-brands fa-earlybirds"></i>Tweeter</i></span>
       <span id="nav-tweet">
+      <a id="nav-button">
         <span><strong>Write</strong> a new tweet </span>
-        <span><i class="fa-solid fa-angles-down"></i></span>
+        <span><i class="fa-solid fa-angles-down fa-bounce" style=" --fa-bounce-start-scale-x: 1; --fa-bounce-start-scale-y: 1; --fa-bounce-jump-scale-x: 1; --fa-bounce-jump-scale-y: 1; --fa-bounce-land-scale-x: 1; --fa-bounce-land-scale-y: 1; --fa-bounce-rebound: 0;" ></i></span>
+      </a>
       </span>
       </div>
     </nav>
-
+  </div>
+  
+  <div class="content">
     <header id="main-header">
       <div class="center-items">
-          <img src="/images/profile-hex.png"> 
+          <img id="img" src="/images/profile-hex.png"> 
       </div>
       <br>
-      <div class="center-items">
-          <h2>Marites</h2>
+      <div class="center-items name-alignment">
+          <h2>Mary Tess</h2>
       </div>
   </header>
   
     <!-- Page-specific (main) content here -->
   <main class="container">
-    <h4 class="label">What are you humming about?</h4>
+    <span class="label">What are you humming about?</span>
     <section class="tweet-form">
       <form class="new-tweet" method="POST" action="/tweets">
         <textarea name="text" id="tweet-text" placeholder="Compose a tweet"></textarea>
         <div class="button-counter">
           <button class="tweet-button" type="submit">Tweet</button>
+          <div class="label" id="error-div"><i class="fa-solid fa-circle-xmark"></i><span id="error-msg"></span><i class="fa-solid fa-circle-xmark"></i></div>
           <output name="counter" class="counter" for="tweet-text">140</output>
       </form>
     </section>
-
-    <article class="tweet-box">
-      <header id="tweet-header">
-        <div class="user-div">
-        <img class="img-layout" src="https://i.imgur.com/73hZDYK.png">
-        <span>Mary Tess</span>
-      </div>
-      <div class="user-div">
-        <span>@Email</span>
-      </div>
-      </header>
-      <div class="content-layout">
-      <span>Hello World</span>
-      </div>
-      <hr>
-      <footer id="tweet-footer">
-        <div class="user-div">
-        <span>Footer</span>
-        </div>
-        <div class="icon-div">
-          <i class="fa-solid fa-heart icon-pad"></i>
-          <i class="fa-solid fa-flag icon-pad"></i>
-          <i class="fa-sharp fa-solid fa-repeat icon-pad"></i>
-        </div>
-      </footer>
-    </article>
-
+    <div class="container" id="tweet-box"></div>
   </main>
+  </div>
+  <footer class="nav-button1">
+  <i class="fa-sharp fa-solid fa-circle-chevron-up"></i>
+  </footer>
   </body>
 </html>
