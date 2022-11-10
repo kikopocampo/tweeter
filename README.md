@@ -35,8 +35,8 @@ Failure to do so, the tweet won't execute and a relevant error message will appe
 
 ## Features
 
-**Desktop:
+**Desktop:**
   - The header is fixed and used to navigate to the top and focus on the 'tweet-line'
 
-**Mobile:
+**Mobile:**
   - Only the logo is fixed and a button will appear on the lower right part of the screen as the header button disappears. The new button will then be used to navigate to the top and focus on the 'tweet-line'
