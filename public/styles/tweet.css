@@ -11,8 +11,7 @@
 }
 
 .tweet-box:hover {
-  box-shadow: 5px 5px 5px 0px rgba(108, 72, 223, 0.57);
-
+  box-shadow: 5px 5px 5px 0px rgba(137, 209, 221, 0.903);
 }
 
 #tweet-header {
@@ -55,8 +54,17 @@ hr {
 
 }
 
+.email-color {
+  color:gray;
+  
+}
+
+.day-font {
+  font-size: 15px;
+}
+
 .icon-pad{
-  color:#4056A1;
+  color:#303c6c;
   padding: 3px;
 }
 
@@ -76,3 +84,4 @@ hr {
   height: 40px;
   margin-right: 10px;
 }
+

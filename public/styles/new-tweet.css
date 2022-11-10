@@ -8,14 +8,14 @@
 
 .label {
   margin: 10px;
-  font-size: smaller;
+  font-size: 23px;
   margin-left: 0px;
 }
 
 #tweet-text {
   border-width: thick;
   height: 40px;
-  background-color: #f4f1ec;
+  background-color: ivory;
   border-style: none;
   border-bottom-style: solid;
   border-bottom-color: rgb(75, 75, 75);
@@ -39,7 +39,7 @@
   font-family:'Bungee', sans-serif;
   height: 2rem;
   width:90px;
-  background-color: #4056A1;
+  background-color: #303c6c;
   color: white;
   font-size: large;
 }
@@ -54,3 +54,18 @@
   color: red;
 }
 
+#error-msg {
+  color:red;
+  font-weight: bold;
+}
+
+#error-div{
+  display:flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.fa-solid{
+  color: red;
+  padding: 5px
+}
