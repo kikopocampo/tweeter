@@ -4,12 +4,14 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+//use to avoid potential XSS attacks
 const escape = function (str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
 
+//make the tweet boxes
 const createTweetElement = (tweet) => {
   const name = tweet.user.name;
   const avatar = tweet.user.avatars;
@@ -44,6 +46,7 @@ const createTweetElement = (tweet) => {
   return output;
 };
 
+//renders the tweet created into the page
 const renderTweets = (tweets) => {
   if (Array.isArray(tweets)) {
     for (const tweet of tweets) {
@@ -55,6 +58,7 @@ const renderTweets = (tweets) => {
 };
 
 $(document).ready(function() {
+  //header button to return to the top (desktop mode)
   $('#nav-button').click(() => {
     $('html, body').animate({
       scrollTop: 0
@@ -62,7 +66,7 @@ $(document).ready(function() {
     $('#tweet-text').focus();
     return;
   });
-
+  //footer button to return to the top (smaller screen mode)
   $('.nav-button1').click(() => {
     $('html, body').animate({
       scrollTop: 0
@@ -70,12 +74,12 @@ $(document).ready(function() {
     $('#tweet-text').focus();
     return;
   });
-
+  //handles the opacity of the buttons and the logo
   $(document).scroll(() => {
     $('.tweeter').css('opacity', '0%');
     $('.tab-logo').css('opacity', '100%');
     const scrollTop = $(window).scrollTop();
-    // console.log(scrollTop)
+    //ensures the header button is no longer within the screen before the footer button
     if (scrollTop <= 90) {
       $('.nav-button1').css('opacity', '0%');
     } else {
@@ -86,13 +90,14 @@ $(document).ready(function() {
 
 
 $(document).ready(function() {
+  //funct to process existing db into tweets
   const $loadTweets = function() {
     $.ajax('/tweets', {method: 'GET'})
       .then(function(data) {
         renderTweets(data);
       });
   };
-
+  //funct to process new db to the site
   const $loadNewTweets = function() {
     $.ajax('/tweets', {method: 'GET'})
       .then(function(data) {
@@ -102,20 +107,24 @@ $(document).ready(function() {
   };
 
   $loadTweets();
+
+  //init status of error message
   $('#error-div').hide();
   $('.new-tweet').submit(function(e) {
     e.preventDefault();
-    
+    // if too much char
     if ($(this.counter).val() < 0) {
       $('#error-div').show();
       $('#error-msg').text('Tweet exceeded 140 characters. Please do a shorter one.');
       return;
     }
+    //if no char
     if (!$(this.text).val()) {
       $('#error-div').show();
       $('#error-msg').text('Empty tweet, please type your tweet');
       return;
     }
+    //sends the data to the db and renders it right after
     $('#error-div').hide('slow');
     $.post("/tweets", $(this).serialize());
     $(this.text).val('');
