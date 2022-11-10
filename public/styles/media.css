@@ -1,0 +1,57 @@
+@media screen and (min-width: 974px) {
+
+  #main-header {
+    width: 30%;
+    margin-top: 140px;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    justify-content: flex-end;
+    margin-left: 30px;
+  }
+
+  .nav {
+    position: fixed;
+  }
+
+  .container {
+    flex-grow: 1;
+  }
+
+  main {
+    padding-top: 90px;
+  } 
+
+  .tweeter {
+    opacity: 100%
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .tweet-box:hover {
+    box-shadow: 5px 5px 5px 0px rgba(59, 70, 229, 0.856);
+  
+  }
+  
+  .tweet-box:hover {
+    box-shadow: 5px 5px 5px 0px rgba(51, 19, 90, 0.903);
+  }
+
+  .name-alignment {
+    margin-bottom: -6px;
+    margin-top: -5px
+  }
+
+  .header-layout {
+    color: white;
+  }
+  
+  .nav-button1 {
+    display: none;
+  }
+
+ 
+}
